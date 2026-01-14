@@ -8,6 +8,6 @@ Enter your name here: Austin
 
 ## The best animals
 
-1. Cuttlefish
-2. Platypus
-3. Three-toed sloth
+1. Cheetah
+2. Boa Constrictor
+3. Alligator
