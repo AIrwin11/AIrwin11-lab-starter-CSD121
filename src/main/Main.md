@@ -12,5 +12,5 @@ Enter your name here: Austin
 2. Boa Constrictor 
 3. Alligator
 4. Axolotl
-5. Bonobo
-6. Capybara
+5. Capybara
+6. Bonobo
