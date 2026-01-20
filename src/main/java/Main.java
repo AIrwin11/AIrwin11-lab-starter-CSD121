@@ -1,10 +1,10 @@
 /**
  * Calculates the total cost of all items in the grocery list.
  *
- * @param prices ArrayList of double valuse representing item prices
+ * @param prices ArrayList of double values representing item prices
  * @return the sum of all prices as a double
  */
-double caluclateTotal(ArrayList<Double> prices) {
+double calculateTotal(ArrayList<Double> prices) {
     var groceryTotal = 0.0;
     for(double price : prices) {
         groceryTotal += price;
@@ -13,7 +13,7 @@ double caluclateTotal(ArrayList<Double> prices) {
 }
 
 /**
- * prompts the user to enter a valid price and handles input erors.
+ * prompts the user to enter a valid price and handles input errors.
  * Continues to prompt until a valid non-negative price is entered.
  *
  * @param scanner Scanner object for reading user input
@@ -27,7 +27,7 @@ double getValidPrice(Scanner scanner) {
             IO.print("Enter item price: $");
             price = Double.parseDouble(scanner.nextLine());
             if (price < 0) {
-                System.out.println("Price cannot be negative. Try again.");
+                IO.println("Price cannot be negative. Try again.");
             } else {
                 validPrice = true;
             }
@@ -46,16 +46,18 @@ double getValidPrice(Scanner scanner) {
  * @param itemPrices ArrayList of Double values containing item prices
  * @param total the total cost of all items
  */
-void displayGroceryList(ArrayList<String> itemNames, ArrayList<Double> itemPrices, double total) {
+void displayGroceryList(ArrayList<String> itemNames,
+                        ArrayList<Double> itemPrices,
+                        double total) {
     IO.println("\n=== Your Grocery List ===");
     int i;
     for (i = 0; i < itemNames.size(); i++) {
-        System.out.printf("%d. %s - $%.2f\n",
+        IO.println(String.format("%d. %s - $%.2f\n",
                 i + 1,
                 itemNames.get(i),
-                itemPrices.get(i));
+                itemPrices.get(i)));
     }
-    System.out.printf("Total: $%.2f\n\n", total);
+    IO.println(String.format("Total: $%.2f\n\n", total));
 }
 
 /**
@@ -67,7 +69,9 @@ void displayGroceryList(ArrayList<String> itemNames, ArrayList<Double> itemPrice
  * @param itemPrices ArrayList of Double values containing item prices
  * @param total the total cost of all items
  */
- void saveToFile(ArrayList<String> itemNames, ArrayList<Double> itemPrices, double total) {
+ void saveToFile(ArrayList<String> itemNames,
+                 ArrayList<Double> itemPrices,
+                 double total) {
     try {
         FileWriter writer = new FileWriter("grocery_list.txt");
         writer.write("=== Grocery List ===\n\n");
@@ -90,7 +94,7 @@ void main() {
     ArrayList<String> itemNames = new ArrayList<>();
     ArrayList<Double> itemPrices = new ArrayList<>();
 
-    System.out.println("=== Grocery List Manager ===\n");
+    IO.println("=== Grocery List Manager ===\n");
 
     var keepGoing = true;
     // Loop for collecting items from user
@@ -110,12 +114,10 @@ void main() {
         IO.println();
     }
     //Call to calculateTotal function
-    var total = caluclateTotal(itemPrices);
+    var total = calculateTotal(itemPrices);
 
     //Display grocery list to console
-    displayGroceryList(itemNames,
-            itemPrices,
-            total);
+    displayGroceryList(itemNames, itemPrices, total);
 
     //write to file with error handling
     saveToFile(itemNames, itemPrices, total);
