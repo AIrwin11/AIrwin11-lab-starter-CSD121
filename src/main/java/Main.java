@@ -21,16 +21,17 @@ double caluclateTotal(ArrayList<Double> prices) {
  */
 double getValidPrice(Scanner scanner) {
     var price = 0.0;
-    var validPrice = false;
-    while (!validPrice) {
+    var isPriceValid = false;
+    while (!isPriceValid) {
         try {
             IO.print("Enter item price: $");
             price = Double.parseDouble(scanner.nextLine());
             if (price < 0) {
                 System.out.println("Price cannot be negative. Try again.");
             } else {
-                validPrice = true;
+                isPriceValid = true;
             }
+            //
         } catch (NumberFormatException e) {
             IO.println("Invalid price. Please enter a number. ");
         }
@@ -69,16 +70,16 @@ void displayGroceryList(ArrayList<String> itemNames, ArrayList<Double> itemPrice
  */
  void saveToFile(ArrayList<String> itemNames, ArrayList<Double> itemPrices, double total) {
     try {
-        FileWriter writer = new FileWriter("grocery_list.txt");
-        writer.write("=== Grocery List ===\n\n");
+        FileWriter createFile = new FileWriter("grocery_list.txt");
+        createFile.write("=== Grocery List ===\n\n");
         for (int i = 0; i < itemNames.size(); i++) {
-            writer.write(String.format("%d. %s - $%.2f\n",
+            createFile.write(String.format("%d. %s - $%.2f\n",
                     i + 1,
                     itemNames.get(i),
                     itemPrices.get(i)));
         }
-        writer.write(String.format("\nTotal: $%.2f\n", total));
-        writer.close();
+        createFile.write(String.format("\nTotal: $%.2f\n", total));
+        createFile.close();
         IO.println("✓ List saved to grocery_list.txt");
     } catch (IOException e) {
         IO.println("Error saving file: " + e.getMessage());
@@ -86,24 +87,24 @@ void displayGroceryList(ArrayList<String> itemNames, ArrayList<Double> itemPrice
 }
 
 void main() {
-    Scanner scanner = new Scanner(System.in);
+    var readInput = new Scanner(System.in);
     ArrayList<String> itemNames = new ArrayList<>();
     ArrayList<Double> itemPrices = new ArrayList<>();
 
-    System.out.println("=== Grocery List Manager ===\n");
+    IO.println("=== Grocery List Manager ===\n");
 
     var keepGoing = true;
     // Loop for collecting items from user
     while (keepGoing) {
         IO.print("Enter item name: ");
-        String itemName = scanner.nextLine();
+        String itemName = readInput.nextLine();
         itemNames.add(itemName);
 
-        var price = getValidPrice(scanner);
+        var price = getValidPrice(readInput);
         itemPrices.add(price);
 
         IO.print("Add another item (y/n): ");
-        String response = scanner.nextLine().toLowerCase();
+        String response = readInput.nextLine().toLowerCase();
         if (!response.equals("y")) {
             keepGoing = false;
         }
@@ -120,5 +121,5 @@ void main() {
     //write to file with error handling
     saveToFile(itemNames, itemPrices, total);
 
-    scanner.close();
+    readInput.close();
 }
