@@ -23,7 +23,7 @@ void main() {
         var avatarStream = getRandomAvatarStream();
         showAvatar(avatarStream);
     } catch (IOException | InterruptedException e) {
-        JOptionPane.showMessageDialog(null, "Failed to load avatar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog (null, "Failed to load avatar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE); // JOptionPane.showMessageDialog = Class method | e.getMessage = Instance method | JOptionPane.ERROR_MESSAGE = Class variable
     }
 
 }
@@ -31,19 +31,20 @@ void main() {
 InputStream getRandomAvatarStream() throws IOException, InterruptedException {
     // Pick a random style
     String[] styles = { "adventurer", "adventurer-neutral", "avataaars", "big-ears", "big-ears-neutral", "big-smile", "bottts", "croodles", "croodles-neutral", "fun-emoji", "icons", "identicon", "initials", "lorelei", "micah", "miniavs", "open-peeps", "personas", "pixel-art", "pixel-art-neutral" };
-    var style = styles[(int)(Math.random() * styles.length)];
+    var style = styles[(int)(Math.random() * styles.length)]; // 1. Math.random = Class method | styles.length = instance variable
 
     // Generate a random seed
-    var seed = (int)(Math.random() * 10000);
+    var seed = (int)(Math.random() * 10000); // 1. Math.random = Class method
 
     // Create an HTTP request for a random avatar
-    var uri = URI.create("https://api.dicebear.com/9.x/%s/png?seed=%d".formatted(style, seed));
-    var request = HttpRequest.newBuilder(uri).build();
+    var uri = URI.create("https://api.dicebear.com/9.x/%s/png?seed=%d".formatted(style, seed)); // 1. URI.create = class method | "https://api.dicebear.com/9.x/%s/png?seed=%d".formatted = instance variable
+    var request = HttpRequest.newBuilder(uri).build(); // 1. HttpRequest.newBuilder = class method | newBuilder(uri).build() = instance method
+
 
     // Send the request
-    try (var client = HttpClient.newHttpClient()) {
-        var response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
-        return response.body();
+    try (var client = HttpClient.newHttpClient()) { // 1. HttpClient.newHttpClient = Class method
+        var response = client.send(request, HttpResponse.BodyHandlers.ofInputStream()); // 1. .send = instance method | .BodyHandlers = class variable | .ofInputStream = class instance
+        return response.body(); // 1. .body = instance method
     }
 }
 
