@@ -1,10 +1,4 @@
-import java.util.ArrayList;
-
-import static ui.Console.*;
-import static ui.Console.println;
-
 public class Main {
-
 
     static void main() {
 

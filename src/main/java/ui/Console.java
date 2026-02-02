@@ -2,7 +2,6 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 // This is an example of one of those "namespace" classes that just holds static methods
 public class Console {
