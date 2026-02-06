@@ -8,5 +8,12 @@
  */
 package core;
 
-public class CardStack {
+import java.util.ArrayList;
+import java.util.List;
+
+public enum CardStack(ArrayList<Card> cards) {
+    ArrayList<Card> deck = new ArrayList<>();
+
+
+
 }
