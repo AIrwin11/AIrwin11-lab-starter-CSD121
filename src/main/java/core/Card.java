@@ -8,5 +8,13 @@
  */
 package core;
 
-public class Card {
+
+
+public record Card(Rank rank, Suit suit) {
+    // methods here
+    @Override
+    public String toString() {
+        return rank.getSymbol() + suit.getSymbol();
+    }
+
 }

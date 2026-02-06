@@ -1,6 +1,12 @@
+import core.Card;
+import core.Rank;
+import core.Suit;
+
 public class Main {
 
     static void main() {
+       var card = new Card(Rank.JACK, Suit.CLUBS);
+        IO.println(card);
 
         /*
              Place your main game logic here.
