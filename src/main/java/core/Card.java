@@ -12,25 +12,25 @@ package core;
 
 public record Card(Rank rank, Suit suit) {
     // methods here
-    @Override
     public String toString() {
         return rank.getSymbol() + suit.getSymbol();
     }
     public enum Suit {
         HEARTS("♥"), SPADES("♠"), CLUBS("♣"), DIAMONDS("♦");
 
-        //field to store symbol
+        // field to store symbol
         private final String symbol;
 
-        //constructor to initialize symbol
+        // constructor to initialize symbol
         Suit(String symbol) {
             this.symbol = symbol;
         }
 
-        //method to get symbol
+        // method to get symbol
         public String getSymbol() {
             return symbol;
         }
+
     }
     public enum Rank {
         ACE("A", 14),
@@ -47,26 +47,27 @@ public record Card(Rank rank, Suit suit) {
         THREE("3", 3),
         TWO("2",2);
 
-        //field to store value
+        // field to store value
         private final int value;
 
-        //field to store symbol
+        // field to store symbol
         private final String symbol;
 
-        //constructor to initialize value and symbol
+        // constructor to initialize value and symbol
         Rank(String symbol,int value) {
             this.symbol = symbol;
             this.value = value;
         }
-        //method to get symbol
+        // method to get symbol
         public String getSymbol(){
             return symbol;
         }
-        //method to get value
+        // method to get value
         public int getValue(){
             return value;
         }
 
     }
+
 
 }

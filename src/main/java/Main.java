@@ -1,13 +1,15 @@
 import core.Card;
-import core.Rank;
-import core.Suit;
+import core.CardStack;
+
+import static core.Card.*;
 
 public class Main {
 
     static void main() {
-       var card = new Card(Rank.JACK, Suit.CLUBS);
-        IO.println(card);
-
+        // Card card1 = new Card(Rank.JACK, Suit.DIAMONDS);
+        // IO.println(card1);
+        CardStack deck = new CardStack();
+        IO.println("Deck has " + deck.getCards() + " cards.");
         /*
              Place your main game logic here.
              This is the ONLY code file that should have any reference to the Console class.

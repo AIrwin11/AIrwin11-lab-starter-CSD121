@@ -9,4 +9,28 @@
 package core;
 
 public class Player {
+    private static int win = 0, lose = 0;
+
+    public Player() {
+        win = 0;
+        lose = 0;
+    }
+    // add one to win
+    public void setWin() {
+        win++;
+    }
+
+    // add one to lose
+    public void setLose() {
+        lose++;
+    }
+
+    // return win
+    public int getWin() {
+        return win;
+    }
+    // return lose
+    public int getLose(){
+        return lose;
+    }
 }
