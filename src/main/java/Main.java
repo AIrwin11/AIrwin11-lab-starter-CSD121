@@ -12,7 +12,7 @@ public class Main {
         // shuffle the deck
         ArrayList<Card> cards = cardStack.shuffle();
         // draw a card
-        var card = cardStack.drawCard();
+        var drawnCard = cardStack.drawCard();
 
 
 
@@ -20,7 +20,7 @@ public class Main {
 
 
 
-        IO.println(card);
+        IO.println(drawnCard);
         /*
              Place your main game logic here.
              This is the ONLY code file that should have any reference to the Console class.

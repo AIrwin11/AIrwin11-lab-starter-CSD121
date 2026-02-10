@@ -29,12 +29,13 @@ public class CardStack {
     }
 
     // shuffle the deck
-    private void shuffle() {
+    public ArrayList<Card> shuffle() {
         Collections.shuffle(cards);
+        return null;
     }
     // draw a card
     public Card drawCard() {
-        return cards.remove(0);
+        return cards.removeFirst();
     }
     // check for empty deck
     public boolean isEmpty() {
