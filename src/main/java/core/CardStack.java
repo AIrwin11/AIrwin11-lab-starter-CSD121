@@ -9,11 +9,11 @@
 package core;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
 import core.Card.*;
-public class CardStack {
-    private ArrayList<Card> cards;
 
+public class CardStack {
+    private final ArrayList<Card> cards;
     // create a deck
     public CardStack() {
         cards = new ArrayList<>();
@@ -27,11 +27,17 @@ public class CardStack {
     public int getCards() {
         return cards.size();
     }
+
     // shuffle the deck
-    private ArrayList<Card> shuffledCards() {
-        ArrayList<Card> shuffle = new ArrayList<>();
-        for (Card card : cards) {
-            shuffle.add(card);
-        }
+    private void shuffle() {
+        Collections.shuffle(cards);
+    }
+    // draw a card
+    public Card drawCard() {
+        return cards.remove(0);
+    }
+    // check for empty deck
+    public boolean isEmpty() {
+        return cards.isEmpty();
     }
 }

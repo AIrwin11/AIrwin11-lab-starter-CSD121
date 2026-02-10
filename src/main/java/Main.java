@@ -1,15 +1,26 @@
 import core.Card;
 import core.CardStack;
+import core.Card.*;
 
-import static core.Card.*;
+import java.util.ArrayList;
 
 public class Main {
 
     static void main() {
-        // Card card1 = new Card(Rank.JACK, Suit.DIAMONDS);
-        // IO.println(card1);
-        CardStack deck = new CardStack();
-        IO.println("Deck has " + deck.getCards() + " cards.");
+        // make a new deck
+        CardStack cardStack = new CardStack();
+        // shuffle the deck
+        ArrayList<Card> cards = cardStack.shuffle();
+        // draw a card
+        var card = cardStack.drawCard();
+
+
+
+
+
+
+
+        IO.println(card);
         /*
              Place your main game logic here.
              This is the ONLY code file that should have any reference to the Console class.

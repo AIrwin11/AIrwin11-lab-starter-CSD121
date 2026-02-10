@@ -7,10 +7,12 @@
     You MAY change this to a record/enum as you see fit.
  */
 package core;
+import core.CardStack.*;
 
+public record Card(Suit suit, Rank rank) {
+    public Card(Rank rank, Suit suit) {
+    }
 
-
-public record Card(Rank rank, Suit suit) {
     // methods here
     public String toString() {
         return rank.getSymbol() + suit.getSymbol();
