@@ -11,7 +11,7 @@ import core.CardStack.*;
 
 public record Card(Rank rank, Suit suit) {
 
-        // methods here
+        // toString method to combine rank and suit
         public String toString () {
             return rank.getSymbol() + suit.getSymbol();
         }
@@ -33,9 +33,9 @@ public record Card(Rank rank, Suit suit) {
 
         }
         public enum Rank {
-            ACE("A", 14),
-            KING("K", 13),
-            QUEEN("Q", 12),
+            ACE("A", 12),
+            KING("K", 11),
+            QUEEN("Q", 11),
             JACK("J", 11),
             TEN("10", 10),
             NINE("9", 9),

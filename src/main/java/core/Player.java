@@ -8,29 +8,17 @@
  */
 package core;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Player {
-    private static int win = 0, lose = 0;
+    private final String name;
+    private final CardStack hand;
 
-    public Player() {
-        win = 0;
-        lose = 0;
-    }
-    // add one to win
-    public void setWin() {
-        win++;
-    }
 
-    // add one to lose
-    public void setLose() {
-        lose++;
-    }
-
-    // return win
-    public int getWin() {
-        return win;
-    }
-    // return lose
-    public int getLose(){
-        return lose;
+    // initialize the player name and the deck they will play
+    public Player(String name, CardStack hand) {
+        this.name = name;
+        this.hand = hand;
     }
 }

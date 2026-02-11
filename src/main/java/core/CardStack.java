@@ -13,6 +13,7 @@ import java.util.Collections;
 import core.Card.*;
 
 public class CardStack {
+    // initialize
     private final ArrayList<Card> cards;
     // create a deck
     public CardStack() {
@@ -24,21 +25,21 @@ public class CardStack {
         }
     }
     // return number of cards in stack
-    public int getCards() {
+    public int getCardAmount() {
         return cards.size();
     }
 
     // shuffle the deck
-    public ArrayList<Card> shuffle() {
+    public ArrayList<Card> shuffleTheDeck() {
         Collections.shuffle(cards);
         return null;
     }
     // draw a card
-    public Card drawCard() {
+    public Card drawACard() {
         return cards.removeFirst();
     }
     // check for empty deck
-    public boolean isEmpty() {
+    public boolean checkIfEmpty() {
         return cards.isEmpty();
     }
 }
