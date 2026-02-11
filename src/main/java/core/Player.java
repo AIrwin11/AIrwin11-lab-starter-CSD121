@@ -25,10 +25,12 @@ public class Player {
     public String getName() {
         return name;
     }
+
     // getter method for player hand
     public CardStack getHand() {
         return hand;
     }
+
     // method for drawing a card from the players
     public Card drawFromHand(){
         return hand.drawCard();

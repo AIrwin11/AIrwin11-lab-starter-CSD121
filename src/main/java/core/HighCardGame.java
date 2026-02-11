@@ -9,5 +9,16 @@
 package core;
 
 public class HighCardGame {
+    // method for starting game
+    private static HighCardGame instance;
 
+    public void startGame(){
+        instance = new HighCardGame();
+    }
+    public void dealCard(){
+        instance.dealCard();
+    }
+    private boolean compareCards(){
+        return instance.compareCards();
+    }
 }
