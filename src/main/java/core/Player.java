@@ -21,4 +21,17 @@ public class Player {
         this.name = name;
         this.hand = hand;
     }
+    // constructor to store name
+    public String getName() {
+        return name;
+    }
+    // constructor to store player hand
+    public CardStack getHand() {
+        return hand;
+    }
+    private CardStack drawFromHand(){
+        hand.drawACard();
+        return hand;
+    }
+
 }
