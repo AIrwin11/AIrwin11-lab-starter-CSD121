@@ -35,7 +35,7 @@ public class CardStack {
         return null;
     }
     // draw a card
-    public Card drawACard() {
+    public Card drawCard() {
         return cards.removeFirst();
     }
     // check for empty deck

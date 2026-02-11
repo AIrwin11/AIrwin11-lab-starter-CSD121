@@ -16,7 +16,7 @@ public record Card(Rank rank, Suit suit) {
             return rank.getSymbol() + suit.getSymbol();
         }
         public enum Suit {
-            HEARTS("♥"), SPADES("♠"), CLUBS("♣"), DIAMONDS("♦");
+            HEARTS("♥\uFE0F"), SPADES("♠\uFE0F"), CLUBS("♣\uFE0F"), DIAMONDS("♦\uFE0F");
 
             // field to store symbol
             private final String symbol;

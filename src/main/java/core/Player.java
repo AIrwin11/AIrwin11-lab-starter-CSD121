@@ -12,26 +12,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    private final String name;
-    private final CardStack hand;
 
+    private final String name;
+    private static CardStack hand;
 
     // initialize the player name and the deck they will play
-    public Player(String name, CardStack hand) {
+    public Player(String name, CardStack hand, Player player) {
         this.name = name;
-        this.hand = hand;
+        Player.hand = hand;
     }
-    // constructor to store name
+    // getter method for player name
     public String getName() {
         return name;
     }
-    // constructor to store player hand
+    // getter method for player hand
     public CardStack getHand() {
         return hand;
     }
-    private CardStack drawFromHand(){
-        hand.drawACard();
-        return hand;
+    // method for drawing a card from the players
+    public Card drawFromHand(){
+        return hand.drawCard();
     }
 
 }

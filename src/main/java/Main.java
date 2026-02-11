@@ -12,7 +12,7 @@ public class Main {
         // shuffle the deck
         ArrayList<Card> cards = cardStack.shuffleTheDeck();
         // draw a card
-        var drawCard = cardStack.drawACard();
+        var drawCard = cardStack.drawCard();
 
 
 
