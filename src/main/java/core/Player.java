@@ -8,18 +8,20 @@
  */
 package core;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Player {
-
+    //field to store player names
     private final String name;
-    private static CardStack hand;
-
-    // initialize the player name and the deck they will play
-    public Player(String name, CardStack hand, Player player) {
+    // field to store player hands
+    private  CardStack hand;
+    // constructor for player name and their hand
+    public Player(String name, CardStack hand) {
         this.name = name;
-        Player.hand = hand;
+        this.hand = hand;
+    }
+
+    public void setHand(CardStack hand) {
+        this.hand = hand;
     }
     // getter method for player name
     public String getName() {
