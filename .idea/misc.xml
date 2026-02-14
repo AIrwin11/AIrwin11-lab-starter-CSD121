@@ -4,6 +4,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/core/Card.java" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/javadoc lab 3" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

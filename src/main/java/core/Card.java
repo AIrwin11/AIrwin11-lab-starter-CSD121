@@ -9,14 +9,33 @@
 package core;
 import core.CardStack.*;
 
+ /**
+ * Represents a playing card with a rank and suit.
+ * This is an immutable record that combines a Rank and Suit to form a complete card.
+ * Cards display as their rank symbol followed by their suit symbol (e.g., "A♥️", "K♠️").
+ *
+ * @param rank the rank of the card (Ace, King, Queen, etc.)
+ * @param suit the suit of the card (Hearts, Spades, Clubs, Diamonds)
+ */
 public record Card(Rank rank, Suit suit) {
 
-        // toString method to combine rank and suit
+
+     /**
+     * Returns a string representation of the card.
+     * The card is displayed as the rank symbol followed by the suit symbol.
+     *
+     * @return a string that combines the rank and suit (e.g., "A♥️", "10♣️")
+     */
         public String toString() {
             return rank.getSymbol() + suit.getSymbol();
         }
+
+     /**
+     * Represents the four suits in a standard deck of playing cards.
+     * Each suit has an associated Unicode symbol for display purposes.
+     */
         public enum Suit {
-            HEARTS("♥\uFE0F"), SPADES("♠\uFE0F"), CLUBS("♣\uFE0F"), DIAMONDS("♦\uFE0F");
+            HEARTS("♥️"), SPADES("♠️"), CLUBS("♣️"), DIAMONDS("♦️");
 
             // field to store symbol
             private final String symbol;
@@ -32,6 +51,10 @@ public record Card(Rank rank, Suit suit) {
             }
 
         }
+     /**
+      * Represents the thirteen ranks in a standard deck of playing cards.
+      * Each rank has a display symbol and a numeric value for comparison.
+      */
         public enum Rank {
             ACE("A", 14),
             KING("K", 13),
@@ -53,18 +76,33 @@ public record Card(Rank rank, Suit suit) {
             // field to store symbol
             private final String symbol;
 
-            // constructor to initialize value and symbol
+          /**
+          * Constructs a Rank with the specified symbol and value.
+          *
+          * @param symbol the display symbol for this rank (e.g., "A", "K", "10")
+          * @param value  the numeric value for comparison (Ace=14, King=13, Two=2)
+          */
             Rank(String symbol, int value) {
                 this.symbol = symbol;
                 this.value = value;
             }
 
-            // method to get symbol
+
+          /**
+          * Returns the display symbol for this rank.
+          *
+          * @return the rank symbol (e.g., "A", "K", "10")
+          */
             public String getSymbol() {
                 return symbol;
             }
 
-            // method to get value
+          /**
+          * Returns the numeric value of this rank for comparison.
+          * Higher values represent higher-ranking cards.
+          *
+          * @return the numeric value of the card rank
+          */
             public int getValue() {
                 return value;
             }
