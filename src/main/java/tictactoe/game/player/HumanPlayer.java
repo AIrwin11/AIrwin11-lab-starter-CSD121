@@ -7,7 +7,7 @@ import tictactoe.ui.Console;
 
 public class HumanPlayer extends Player {
     /**
-     * Method for player name and token
+     * Method to store player name and token
      * @param name player name
      * @param token token to be used (X or O)
      */
