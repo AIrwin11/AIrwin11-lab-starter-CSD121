@@ -3,7 +3,6 @@ package tictactoe.game.player;
 import tictactoe.game.Board;
 import tictactoe.game.Position;
 import tictactoe.game.Token;
-import tictactoe.ui.Console;
 
 public abstract class Player {
     private final String name;

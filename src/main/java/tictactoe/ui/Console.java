@@ -4,6 +4,7 @@ import tictactoe.game.*;
 import com.diogonunes.jcolor.AnsiFormat;
 import tictactoe.game.player.HumanPlayer;
 import tictactoe.game.player.Linus;
+import tictactoe.game.player.Optimus;
 import tictactoe.game.player.Player;
 
 import java.text.ParseException;
@@ -79,6 +80,9 @@ public class Console {
                 switch ( input ) {
                     case "linus" ->{
                         return new Linus("Linus", whichPlayer);
+                    }
+                    case "Optimus" -> {
+                        return new Optimus("Optimus", whichPlayer);
                     }
                     default -> printAlert(helpMessage);
                 }
