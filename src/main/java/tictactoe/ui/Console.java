@@ -81,7 +81,7 @@ public class Console {
                     case "linus" ->{
                         return new Linus("Linus", whichPlayer);
                     }
-                    case "Optimus" -> {
+                    case "optimus" -> {
                         return new Optimus("Optimus", whichPlayer);
                     }
                     default -> printAlert(helpMessage);
