@@ -29,14 +29,12 @@ public class Optimus extends Player {
             return miniMax(board, this.token()).position();
         }
     }
-    private MiniMax miniMax(Board board, Token currentToken) {
+    MiniMax miniMax(Board board, Token currentToken) {
         var winner = board.getWinner();
-        var draw = board.isFull();
-        if (winner.isPresent() && winner.get() == Token.X) {
-            return new MiniMax(1, null);
-        } else if (winner.isPresent() && winner.get() == Token.O) {
-            return new MiniMax(-1, null);
-        } else if (draw) {
+        if (winner.isPresent()) {
+            return new MiniMax(winner.get() == Token.X ? 1 : -1, null);
+        }
+        if (board.isFull()) {
             return new MiniMax(0, null);
         }
         Token nextToken = (currentToken == Token.X) ? Token.O : Token.X;
@@ -44,13 +42,14 @@ public class Optimus extends Player {
         var emptyCells = board.getEmptyCells();
         for (var cell : emptyCells) {
             var currentBoardCopy = new Board(board);
-            if (emptyCells.size() % 2 != 0) {
-                currentToken = Token.X;
-            } else {
-                currentToken = Token.O;
-            }
+//            if (emptyCells.size() % 2 != 0) {
+//                currentToken = Token.X;  ...i was overwriting the currentToken parameter here with these assignments xD
+//            } else {                       .... took me way too long to figure this out
+//                currentToken = Token.O;
+//            }
             currentBoardCopy.place(cell, currentToken);
-            MiniMax miniMaxResult = new MiniMax(miniMax(currentBoardCopy, nextToken).score(), cell);//position isn't null when move is evaluated.
+            int score = miniMax(currentBoardCopy, nextToken).score;
+            MiniMax miniMaxResult = new MiniMax(score, cell);
             if (bestResult == null) {
                 bestResult = miniMaxResult;
             } else if (currentToken == Token.X && miniMaxResult.score() > bestResult.score()) {
