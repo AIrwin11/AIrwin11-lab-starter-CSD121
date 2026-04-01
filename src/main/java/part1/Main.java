@@ -46,7 +46,7 @@ public class Main {
         }
     }
 
-    public static void run(ConsoleLogger logger, int n) {
+    public static void run(Logger logger, int n) {
         for ( int i = 0; i < n; i++ ) {
             var randomLevel = LogLevel.values()[(int) (Math.random() * LogLevel.values().length)];
             var message = Messages.getRandomMessage();
